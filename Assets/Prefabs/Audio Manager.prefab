@@ -54,3 +54,14 @@ MonoBehaviour:
     pitch: 1
     name: Honk
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 733493201760b714a85f3d3cf140eb76, type: 3}
+    volume: 1
+    pitch: 1
+    name: Click
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c2d859a2268110e4187963e17eff1a89, type: 3}
+    volume: 1
+    pitch: 1
+    name: Ding
+    source: {fileID: 0}
+  soundVolumeAdjuster: {fileID: 0}

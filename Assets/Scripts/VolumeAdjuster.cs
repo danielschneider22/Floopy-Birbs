@@ -9,6 +9,12 @@ public class VolumeAdjuster : MonoBehaviour
     public int volume;
     public string playerPrefsKey;
     public GameObject bars;
+    private AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Start()
     {
@@ -40,6 +46,7 @@ public class VolumeAdjuster : MonoBehaviour
     {
         if(volume != 11)
         {
+            audioManager.Play("Click");
             volume = volume + 1;
             RedrawVolumeBars();
             StoreVolumeSetting();
@@ -50,6 +57,7 @@ public class VolumeAdjuster : MonoBehaviour
     {
         if(volume != 0)
         {
+            audioManager.Play("Click");
             volume = volume - 1;
             RedrawVolumeBars();
             StoreVolumeSetting();

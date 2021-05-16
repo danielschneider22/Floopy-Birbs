@@ -7,7 +7,6 @@ public class BirbsSceneManager : MonoBehaviour
 {
     private AudioManager audioManager;
 
-    // Start is called before the first frame update
     void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();

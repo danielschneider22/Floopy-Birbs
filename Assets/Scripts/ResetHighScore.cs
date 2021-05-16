@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ToggleSettingsMenu : MonoBehaviour
+public class ResetHighScore : MonoBehaviour
 {
-    public GameObject SettingsMenu;
     private AudioManager audioManager;
+
+    public TextMeshProUGUI highScore;
 
     void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
     }
-    public void ToggleSettings()
+    public void resetHighScore()
     {
         audioManager.Play("Click");
-        if (SettingsMenu.activeSelf)
+        PlayerPrefs.SetInt("score", 0);
+        if(highScore != null)
         {
-            SettingsMenu.SetActive(false);
-        } else
-        {
-            SettingsMenu.SetActive(true);
+            highScore.text = "0";
         }
     }
 }

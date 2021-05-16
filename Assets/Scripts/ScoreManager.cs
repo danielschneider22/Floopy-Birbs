@@ -9,6 +9,12 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreTest;
+    private AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Start()
     {
@@ -24,13 +30,12 @@ public class ScoreManager : MonoBehaviour
         if(score > PlayerPrefs.GetInt("score"))
         {
             PlayerPrefs.SetInt("score", score);
+            if(!highScoreTest.gameObject.activeSelf)
+            {
+                audioManager.Play("Ding");
+            }
             highScoreTest.gameObject.SetActive(true);
         }
         
-    }
-
-    public void resetHighScore()
-    {
-        PlayerPrefs.SetInt("score", 0);
     }
 }
