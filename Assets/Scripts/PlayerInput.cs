@@ -24,22 +24,25 @@ public class PlayerInput : MonoBehaviour
     }
     void Update()
     {
-        foreach (Touch touch in Input.touches)
+        if(playerRigidBody.constraints != RigidbodyConstraints2D.FreezeAll)
         {
-            if (touch.phase == TouchPhase.Began)
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    BirdGoUp();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 BirdGoUp();
             }
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            BirdGoUp();
+
+            transform.position = new Vector2(initPositionX, transform.position.y);
+            playerRigidBody.velocity = Vector3.ClampMagnitude(playerRigidBody.velocity, maxSpeed);
+            playerRigidBody.angularVelocity = playerRigidBody.velocity.y > 0f ? playerRigidBody.velocity.y * 30f : playerRigidBody.velocity.y * 20f;
         }
 
-        transform.position = new Vector2(initPositionX, transform.position.y);
-        playerRigidBody.velocity = Vector3.ClampMagnitude(playerRigidBody.velocity, maxSpeed);
-        playerRigidBody.angularVelocity = playerRigidBody.velocity.y > 0f ? playerRigidBody.velocity.y * 30f : playerRigidBody.velocity.y * 20f;
-        // playerRigidBody.angularVelocity = Mathf.Max(playerRigidBody.angularVelocity, -10f);
     }
 
     private void BirdGoUp()

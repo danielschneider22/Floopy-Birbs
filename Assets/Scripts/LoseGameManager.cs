@@ -38,6 +38,7 @@ public class LoseGameManager : MonoBehaviour
             child.GetComponent<MoveLeft>().enabled = false;
         }
         audioManager.Play("Honk");
+        audioManager.Play("VictoryChime");
 
         if (highScoreText.gameObject.activeSelf)
         {

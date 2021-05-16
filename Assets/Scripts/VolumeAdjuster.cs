@@ -10,18 +10,18 @@ public class VolumeAdjuster : MonoBehaviour
     public string playerPrefsKey;
     public GameObject bars;
     private AudioManager audioManager;
+    private MusicManager musicManager;
 
     void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
-    }
+        musicManager = FindObjectOfType<MusicManager>();
 
-    private void Start()
-    {
-        if(PlayerPrefs.HasKey(playerPrefsKey))
+        if (PlayerPrefs.HasKey(playerPrefsKey))
         {
             volume = PlayerPrefs.GetInt(playerPrefsKey);
-        } else
+        }
+        else
         {
             volume = 4;
             StoreVolumeSetting();
@@ -50,6 +50,10 @@ public class VolumeAdjuster : MonoBehaviour
             volume = volume + 1;
             RedrawVolumeBars();
             StoreVolumeSetting();
+            if (playerPrefsKey == "musicVolume")
+            {
+                SetMusicVolume();
+            }
         }
     }
 
@@ -61,11 +65,21 @@ public class VolumeAdjuster : MonoBehaviour
             volume = volume - 1;
             RedrawVolumeBars();
             StoreVolumeSetting();
+            if (playerPrefsKey == "musicVolume")
+            {
+                SetMusicVolume();
+            }
         }
+        
     }
 
     private void StoreVolumeSetting()
     {
         PlayerPrefs.SetInt(playerPrefsKey, volume);
+    }
+
+    private void SetMusicVolume()
+    {
+        musicManager.musicSource.volume = (float)volume / 11f;
     }
 }

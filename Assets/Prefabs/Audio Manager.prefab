@@ -64,4 +64,9 @@ MonoBehaviour:
     pitch: 1
     name: Ding
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ccb4a26265bcd8547a49a90bc6ab6a96, type: 3}
+    volume: 1
+    pitch: 1
+    name: VictoryChime
+    source: {fileID: 0}
   soundVolumeAdjuster: {fileID: 0}
