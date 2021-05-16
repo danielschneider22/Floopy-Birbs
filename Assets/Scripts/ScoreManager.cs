@@ -28,4 +28,9 @@ public class ScoreManager : MonoBehaviour
         }
         
     }
+
+    public void resetHighScore()
+    {
+        PlayerPrefs.SetInt("score", 0);
+    }
 }
