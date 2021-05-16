@@ -8,8 +8,14 @@ public class PlayerInput : MonoBehaviour
     private float thrust = 500f;
     private float initPositionX;
     private float maxSpeed = 10f;
+    private AudioManager audioManager;
 
     public Transform forcePosition;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Start()
     {
@@ -38,7 +44,8 @@ public class PlayerInput : MonoBehaviour
 
     private void BirdGoUp()
     {
-        if(playerRigidBody.velocity.y < 0f)
+        audioManager.Play("Whistle");
+        if (playerRigidBody.velocity.y < 0f)
         {
             playerRigidBody.AddForce(new Vector3(0, 1.0f, 0) * thrust * 3f);
         } else

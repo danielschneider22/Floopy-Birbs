@@ -15,6 +15,12 @@ public class LoseGameManager : MonoBehaviour
     public GameObject highScoreText;
 
     private Vector3 initPosition;
+    private AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     public void Start()
     {
@@ -31,8 +37,9 @@ public class LoseGameManager : MonoBehaviour
         {
             child.GetComponent<MoveLeft>().enabled = false;
         }
+        audioManager.Play("Honk");
 
-        if(highScoreText.gameObject.activeSelf)
+        if (highScoreText.gameObject.activeSelf)
         {
             highScoreText.SetActive(false);
             finalHighScoreText.gameObject.SetActive(true);

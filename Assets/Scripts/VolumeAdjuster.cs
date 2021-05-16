@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class VolumeAdjuster : MonoBehaviour
 {
-    // volume is 0 - 10
-    private int volume;
+    // volume is 0 - 11
+    public int volume;
     public string playerPrefsKey;
     public GameObject bars;
 
