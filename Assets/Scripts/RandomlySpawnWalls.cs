@@ -19,7 +19,7 @@ public class RandomlySpawnWalls : MonoBehaviour
         float randomAddY = Random.Range(0f, 5f);
         BottomWall.transform.position = new Vector2(BottomWall.transform.position.x, BottomWall.transform.position.y + randomAddY);
 
-        float randomYBufferDiff = Random.Range(10f, 15f);
+        float randomYBufferDiff = Random.Range(10.5f, 13f);
         TopWall.transform.position = new Vector2(TopWall.transform.position.x, BottomWall.transform.position.y + randomYBufferDiff);
     }
 

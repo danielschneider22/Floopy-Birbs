@@ -25,7 +25,7 @@ public class WallSpawner : MonoBehaviour
             newWallPair.GetComponent<RandomlySpawnWalls>().MaxHeightTop = MaxHeightTop;
             newWallPair.GetComponent<RandomlySpawnWalls>().MinHeightBottom = MinHeightBottom;
             newWallPair.transform.parent = transform;
-            timer = Random.Range(2f, 5f);
+            timer = Random.Range(1.5f, 2.5f);
         } else
         {
             timer = timer - Time.deltaTime;
